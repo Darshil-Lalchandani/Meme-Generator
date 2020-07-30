@@ -11,7 +11,7 @@ class MemeGenerator extends Component {
       bottomStyle1: {
         position: "absolute",
         bottom: "50px",
-        left: "50px",
+        left: "100px",
         zIndex: "5",
       },
       bottomStyle2: {
@@ -19,8 +19,8 @@ class MemeGenerator extends Component {
       },
       topStyle1: {
         position: "absolute",
-        top: "200px",
-        left: "50px",
+        top: "20px",
+        left: "60px",
         zIndex: "5",
       },
       topStyle2:  {
@@ -31,6 +31,7 @@ class MemeGenerator extends Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.imgSelector= this.imgSelector.bind(this)
+    this.customAlign = this.customAlign.bind(this)
   }
   componentDidMount() {
     fetch('https://api.imgflip.com/get_memes')
@@ -58,6 +59,26 @@ class MemeGenerator extends Component {
       }
     })
   }
+  customAlign(event) {
+    const {type,value} = event.target
+    if(type === 'checkbox') {
+      this.setState({
+        customBotTextAlign: !this.state.customBotTextAlign,
+        customTopTextAlign: !this.state.customTopTextAlign,
+      })
+    } else {
+      this.setState({
+        topStyle1: {
+          /*position: "absolute",
+          top: "20px",
+          left: value,
+          zIndex: "5",*/
+          ...this.state.topStyle1,
+          left: value
+        },
+      })
+    }
+  }
   render() {
     return (
       <div>
@@ -80,6 +101,19 @@ class MemeGenerator extends Component {
           <span>  </span>
           <button onClick={this.imgSelector}>New template</button>
         </form>
+        <br />
+        <input
+          type="checkbox"
+          onChange={this.customAlign}
+          style={{float: 'left'}}
+        />
+        <label>Custom Text Align</label>
+        <br />
+        <input
+          type="text"
+          placeholder="Toptext-Left eg.100px"
+          onChange={this.customAlign}
+        />
         <div className="meme">
           <img src={this.state.randomImg} alt="" />
           <h2
