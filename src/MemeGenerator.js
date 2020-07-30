@@ -8,6 +8,26 @@ class MemeGenerator extends Component {
       bottomText: "",
       randomImg: "http://i.imgflip.com/1bij.jpg",
       allMemeImgs: [],
+      bottomStyle1: {
+        position: "absolute",
+        bottom: "50px",
+        left: "50px",
+        zIndex: "5",
+      },
+      bottomStyle2: {
+        bottom : 0
+      },
+      topStyle1: {
+        position: "absolute",
+        top: "200px",
+        left: "50px",
+        zIndex: "5",
+      },
+      topStyle2:  {
+        top : 0
+      },
+      customTopTextAlign: false,
+      customBotTextAlign: false,
     }
     this.handleChange = this.handleChange.bind(this)
     this.imgSelector= this.imgSelector.bind(this)
@@ -57,12 +77,29 @@ class MemeGenerator extends Component {
             onChange={this.handleChange}
             value={this.state.bottomText}
           />
+          <span>  </span>
           <button onClick={this.imgSelector}>New template</button>
         </form>
         <div className="meme">
           <img src={this.state.randomImg} alt="" />
-          <h2 className="top">{this.state.topText}</h2>
-          <h2 className="bottom">{this.state.bottomText}</h2>
+          <h2
+            className="top"
+            style={
+              this.state.customTopTextAlign
+              ? this.state.topStyle1
+              : this.state.topStyle2
+            }
+          >
+          {this.state.topText}</h2>
+          <h2
+            className="bottom"
+            style={
+              this.state.customBotTextAlign
+              ? this.state.bottomStyle1
+              : this.state.bottomStyle2
+            }
+          >
+          {this.state.bottomText}</h2>
         </div>
         </div>
     )
