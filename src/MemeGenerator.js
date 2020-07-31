@@ -32,6 +32,7 @@ class MemeGenerator extends Component {
     this.handleChange = this.handleChange.bind(this)
     this.imgSelector= this.imgSelector.bind(this)
     this.customAlign = this.customAlign.bind(this)
+    this.sliderAlign = this.sliderAlign.bind(this)
   }
   componentDidMount() {
     fetch('https://api.imgflip.com/get_memes')
@@ -61,20 +62,26 @@ class MemeGenerator extends Component {
   }
   customAlign(event) {
     const {type,value} = event.target
-    if(type === 'checkbox') {
       this.setState({
         customBotTextAlign: !this.state.customBotTextAlign,
         customTopTextAlign: !this.state.customTopTextAlign,
       })
-    } else {
+    }
+  sliderAlign(event) {
+    //console.log(event.target.value)
+    const {name} = event.target
+    if(name === "topStyle1") {
       this.setState({
         topStyle1: {
-          /*position: "absolute",
-          top: "20px",
-          left: value,
-          zIndex: "5",*/
           ...this.state.topStyle1,
-          left: value
+          left: 7*event.target.value + 'px'
+        },
+      })
+    } else {
+      this.setState({
+        bottomStyle1: {
+          ...this.state.bottomStyle1,
+          left: 7*event.target.value + 'px'
         },
       })
     }
@@ -109,10 +116,22 @@ class MemeGenerator extends Component {
         />
         <label>Custom Text Align</label>
         <br />
+        <label>Top Text(Horizontal):--</label>
         <input
-          type="text"
-          placeholder="Toptext-Left eg.100px"
-          onChange={this.customAlign}
+        type="range"
+        min="100px"
+        max="700px"
+        name="topStyle1"
+        onChange={this.sliderAlign}
+        />
+        <br />
+        <label>Bottom Text(Horizontal):--</label>
+        <input
+        type="range"
+        min="100px"
+        max="700px"
+        name="bottomStyle1"
+        onChange={this.sliderAlign}
         />
         <div className="meme">
           <img src={this.state.randomImg} alt="" />
