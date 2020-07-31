@@ -2,67 +2,93 @@ import React from 'react'
 
 function MemeComp(props) {
   return(
-    <div>
-      <form className="meme-form">
-        <label>Top Text:- </label>
-        <input
-          type="text"
-          name="topText"
-          onChange={props.handleChange}
-          value={props.data.topText}
-        />
-        <br /><br />
-        <label>Bottom Text:- </label>
-        <input
-          type="text"
-          name="bottomText"
-          onChange={props.handleChange}
-          value={props.data.bottomText}
-        />
-        <span>  </span>
+    <div className="meme-container">
+      <div>
+        <form className="meme-form">
+        <table>
+        <tr>
+          <td><label>Top Text:- </label></td>
+          <td>
+          <input
+            type="text"
+            name="topText"
+            onChange={props.handleChange}
+            value={props.data.topText}
+          />
+          </td>
+        </tr>
+        <tr>
+          <td><label>Bottom Text:- </label></td>
+          <td>
+          <input
+            type="text"
+            name="bottomText"
+            onChange={props.handleChange}
+            value={props.data.bottomText}
+          />
+          </td>
+        </tr>
+        </table>
+        <br />
         <button onClick={props.imgSelector}>New template</button>
-      </form>
-      <br />
-      <input
-        type="checkbox"
-        onChange={props.customAlign}
-        style={{float: 'left'}}
-      />
-      <label>Custom Text Align</label>
-      <br />
-      <label>Top Text(Horizontal):--</label>
-      <input
-      type="range"
-      /*min="100px"
-      max="700px"*/
-      name="topStyle1"
-      onChange={props.sliderAlign}
-      />
-      <br />
-      <label>Bottom Text(Horizontal):--</label>
-      <input
-      type="range"
-      /*min="100px"
-      max="700px"*/
-      name="bottomStyle1"
-      onChange={props.sliderAlign}
-      />
-      <br />
-      <label>Top Text(Vertical):--</label>
-      <input
-      type="range"
-      max="75"
-      name="topStyle1"
-      onChange={props.sliderAlignVertical}
-      />
-      <br />
-      <label>Bottom Text(Vertical):--</label>
-      <input
-      type="range"
-      max="75"
-      name="bottomStyle1"
-      onChange={props.sliderAlignVertical}
-      />
+        </form>
+        <br />
+        <input
+          type="checkbox"
+          onChange={props.customAlign}
+          style={{float: 'left'}}
+        />
+        <label>Custom Text Align</label>
+        <br />
+        <table>
+        <tr>
+          <td><label>Top Text(Horizontal):-</label></td>
+          <td>
+          <input
+          type="range"
+          /*min="100px"
+          max="700px"*/
+          name="topStyle1"
+          onChange={props.sliderAlign}
+          />
+          </td>
+        </tr>
+        <tr>
+          <td><label>Bottom Text(Horizontal):-</label></td>
+          <td>
+          <input
+          type="range"
+          /*min="100px"
+          max="700px"*/
+          name="bottomStyle1"
+          onChange={props.sliderAlign}
+          />
+          </td>
+        </tr>
+        <tr>
+          <td><label>Top Text(Vertical):-</label></td>
+          <td>
+          <input
+          type="range"
+          max="66"
+          name="topStyle1"
+          onChange={props.sliderAlignVertical}
+          />
+          </td>
+        </tr>
+        <tr>
+          <td><label>Bottom Text(Vertical):-</label></td>
+          <td>
+          <input
+          type="range"
+          max="66"
+          name="bottomStyle1"
+          onChange={props.sliderAlignVertical}
+          />
+          </td>
+        </tr>
+        </table>
+      </div>
       <div className="meme">
         <img src={props.data.randomImg} alt="" />
         <h2

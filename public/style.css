@@ -69,19 +69,9 @@ h2 {
   height: 70vh;
   z-index: -1;
 }
-/*
-.bottom {
-  position: absolute;
-  bottom: 50px;
-  left: 50px;
-  z-index: 5;
-  bottom: 0;
-}
 
-.top {
-  position: absolute;
-  top: 200px;
-  left: 50px;
-  z-index: 5;
-  top: 0;
-}*/
+.meme-container {
+  display: flex;
+  margin-top: 25px;
+  margin-left: 10px;
+}
