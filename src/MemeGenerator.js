@@ -30,9 +30,10 @@ class MemeGenerator extends Component {
       customBotTextAlign: false,
     }
     this.handleChange = this.handleChange.bind(this)
-    this.imgSelector= this.imgSelector.bind(this)
+    this.imgSelector = this.imgSelector.bind(this)
     this.customAlign = this.customAlign.bind(this)
     this.sliderAlign = this.sliderAlign.bind(this)
+    this.sliderAlignVertical = this.sliderAlignVertical.bind(this)
   }
   componentDidMount() {
     fetch('https://api.imgflip.com/get_memes')
@@ -61,14 +62,12 @@ class MemeGenerator extends Component {
     })
   }
   customAlign(event) {
-    const {type,value} = event.target
       this.setState({
         customBotTextAlign: !this.state.customBotTextAlign,
         customTopTextAlign: !this.state.customTopTextAlign,
       })
     }
   sliderAlign(event) {
-    //console.log(event.target.value)
     const {name} = event.target
     if(name === "topStyle1") {
       this.setState({
@@ -82,6 +81,24 @@ class MemeGenerator extends Component {
         bottomStyle1: {
           ...this.state.bottomStyle1,
           left: 7*event.target.value + 'px'
+        },
+      })
+    }
+  }
+  sliderAlignVertical(event) {
+    const {name} = event.target
+    if(name === "topStyle1") {
+      this.setState({
+        topStyle1: {
+          ...this.state.topStyle1,
+          top: 7*event.target.value + 'px'
+        },
+      })
+    } else {
+      this.setState({
+        bottomStyle1: {
+          ...this.state.bottomStyle1,
+          bottom: 7*event.target.value + 'px'
         },
       })
     }
@@ -119,8 +136,8 @@ class MemeGenerator extends Component {
         <label>Top Text(Horizontal):--</label>
         <input
         type="range"
-        min="100px"
-        max="700px"
+        /*min="100px"
+        max="700px"*/
         name="topStyle1"
         onChange={this.sliderAlign}
         />
@@ -128,10 +145,26 @@ class MemeGenerator extends Component {
         <label>Bottom Text(Horizontal):--</label>
         <input
         type="range"
-        min="100px"
-        max="700px"
+        /*min="100px"
+        max="700px"*/
         name="bottomStyle1"
         onChange={this.sliderAlign}
+        />
+        <br />
+        <label>Top Text(Vertical):--</label>
+        <input
+        type="range"
+        max="75"
+        name="topStyle1"
+        onChange={this.sliderAlignVertical}
+        />
+        <br />
+        <label>Bottom Text(Vertical):--</label>
+        <input
+        type="range"
+        max="75"
+        name="bottomStyle1"
+        onChange={this.sliderAlignVertical}
         />
         <div className="meme">
           <img src={this.state.randomImg} alt="" />
