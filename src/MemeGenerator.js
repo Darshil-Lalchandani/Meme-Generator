@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import MemeComponent from './MemeComponent';
 
 class MemeGenerator extends Component {
   constructor() {
@@ -106,88 +107,15 @@ class MemeGenerator extends Component {
   render() {
     return (
       <div>
-        <form className="meme-form">
-          <label>Top Text:- </label>
-          <input
-            type="text"
-            name="topText"
-            onChange={this.handleChange}
-            value={this.state.topText}
-          />
-          <br /><br />
-          <label>Bottom Text:- </label>
-          <input
-            type="text"
-            name="bottomText"
-            onChange={this.handleChange}
-            value={this.state.bottomText}
-          />
-          <span>  </span>
-          <button onClick={this.imgSelector}>New template</button>
-        </form>
-        <br />
-        <input
-          type="checkbox"
-          onChange={this.customAlign}
-          style={{float: 'left'}}
+        <MemeComponent
+          data = {this.state}
+          handleChange = {this.handleChange}
+          imgSelector = {this.imgSelector}
+          customAlign = {this.customAlign}
+          sliderAlign = {this.sliderAlign}
+          sliderAlignVertical = {this.sliderAlignVertical}
         />
-        <label>Custom Text Align</label>
-        <br />
-        <label>Top Text(Horizontal):--</label>
-        <input
-        type="range"
-        /*min="100px"
-        max="700px"*/
-        name="topStyle1"
-        onChange={this.sliderAlign}
-        />
-        <br />
-        <label>Bottom Text(Horizontal):--</label>
-        <input
-        type="range"
-        /*min="100px"
-        max="700px"*/
-        name="bottomStyle1"
-        onChange={this.sliderAlign}
-        />
-        <br />
-        <label>Top Text(Vertical):--</label>
-        <input
-        type="range"
-        max="75"
-        name="topStyle1"
-        onChange={this.sliderAlignVertical}
-        />
-        <br />
-        <label>Bottom Text(Vertical):--</label>
-        <input
-        type="range"
-        max="75"
-        name="bottomStyle1"
-        onChange={this.sliderAlignVertical}
-        />
-        <div className="meme">
-          <img src={this.state.randomImg} alt="" />
-          <h2
-            className="top"
-            style={
-              this.state.customTopTextAlign
-              ? this.state.topStyle1
-              : this.state.topStyle2
-            }
-          >
-          {this.state.topText}</h2>
-          <h2
-            className="bottom"
-            style={
-              this.state.customBotTextAlign
-              ? this.state.bottomStyle1
-              : this.state.bottomStyle2
-            }
-          >
-          {this.state.bottomText}</h2>
-        </div>
-        </div>
+      </div>
     )
   }
 }
