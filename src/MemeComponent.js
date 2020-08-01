@@ -6,6 +6,7 @@ function MemeComp(props) {
       <div>
         <form className="meme-form">
         <table>
+        <tbody>
         <tr>
           <td><label>Top Text:- </label></td>
           <td>
@@ -28,6 +29,7 @@ function MemeComp(props) {
           />
           </td>
         </tr>
+        </tbody>
         </table>
         <br />
         <button onClick={props.imgSelector}>New template</button>
@@ -41,6 +43,7 @@ function MemeComp(props) {
         <label>Custom Text Align</label>
         <br />
         <table>
+        <tbody>
         <tr>
           <td><label>Top Text(Horizontal):-</label></td>
           <td>
@@ -81,34 +84,48 @@ function MemeComp(props) {
           <td>
           <input
           type="range"
-          max="66"
+          max="70"
           name="bottomStyle1"
           onChange={props.sliderAlignVertical}
           />
           </td>
         </tr>
+        </tbody>
         </table>
       </div>
       <div className="meme">
-        <img src={props.data.randomImg} alt="" />
-        <h2
-          className="top"
-          style={
-            props.data.customTopTextAlign
-            ? props.data.topStyle1
-            : props.data.topStyle2
-          }
-        >
-        {props.data.topText}</h2>
-        <h2
-          className="bottom"
-          style={
-            props.data.customBotTextAlign
-            ? props.data.bottomStyle1
-            : props.data.bottomStyle2
-          }
-        >
-        {props.data.bottomText}</h2>
+      <svg
+            id="svg_ref"
+            //ref={el => { this.svgRef = el }}
+            height="500px"
+            width="500px"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink">
+            <image
+              //ref={el => { this.imageRef = el }}
+              xlinkHref={props.data.randomImg}
+              height="500px"
+              width="500px"
+            />
+            <text
+              id="textStyle"
+              x={props.data.topStyle1.left}
+              y={props.data.topStyle1.top}
+              dominantBaseline="middle"
+              textAnchor="middle"
+            >
+                {props.data.topText}
+            </text>
+            <text
+              id="textStyle"
+              dominantBaseline="middle"
+              textAnchor="middle"
+              x={props.data.bottomStyle1.left}
+              y={props.data.bottomStyle1.bottom}
+            >
+                {props.data.bottomText}
+            </text>
+          </svg>
       </div>
     </div>
   )
