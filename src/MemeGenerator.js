@@ -108,43 +108,66 @@ class MemeGenerator extends Component {
   download = () => {
     const meme = document.querySelector('.meme');
   
-    // Create a new canvas element
-    const canvas = document.createElement('canvas');
-    canvas.width = meme.offsetWidth;
-    canvas.height = meme.offsetHeight;
+    // Delay before capturing the screenshot
+    setTimeout(() => {
+      // Create a new canvas element
+      const canvas = document.createElement('canvas');
+      canvas.width = 500;
+      canvas.height = 500;
   
-    // Get the 2D context of the canvas
-    const ctx = canvas.getContext('2d');
+      // Get the 2D context of the canvas
+      const ctx = canvas.getContext('2d');
   
-    // Draw the image element onto the canvas
-    const img = new Image();
-    img.src = this.state.randomImg;
-    img.crossOrigin = 'anonymous';
-    img.onload = function() {
-      ctx.drawImage(img, 0, 0, meme.offsetWidth, meme.offsetHeight);
+      // Draw the image element onto the canvas
+      const img = new Image();
+      img.src = this.state.randomImg;
+      img.crossOrigin = 'anonymous';
+      img.onload = function() {
+        ctx.drawImage(img, 0, 0, 500, 500);
   
-      // Draw the top and bottom text elements onto the canvas
-      ctx.font = '30px Impact';
-      ctx.fillStyle = 'white';
-      ctx.strokeStyle = 'black';
-      ctx.lineWidth = 3;
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'top';
-      //TODO change x and y position
-      ctx.fillText(this.state.topText.toUpperCase(), meme.offsetWidth / 2, 0, meme.offsetWidth);
-      ctx.strokeText(this.state.topText.toUpperCase(), meme.offsetWidth / 2, 0, meme.offsetWidth);
-      ctx.textBaseline = 'bottom';
-      ctx.fillText(this.state.bottomText.toUpperCase(), meme.offsetWidth / 2, meme.offsetHeight, meme.offsetWidth);
-      ctx.strokeText(this.state.bottomText.toUpperCase(), meme.offsetWidth / 2, meme.offsetHeight, meme.offsetWidth);
+        // Draw the top and bottom text elements onto the canvas
+        ctx.font = '30px Impact';
+        ctx.fillStyle = 'white';
+        ctx.strokeStyle = 'black';
+        ctx.lineWidth = 3;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'top';
+        
+        ctx.fillText(
+          this.state.topText.toUpperCase(), 
+          parseInt(this.state.topStyle1.left) - 250, 
+          parseInt(this.state.topStyle1.top), 
+          meme.offsetWidth
+        );
+        ctx.strokeText(
+          this.state.topText.toUpperCase(),
+          parseInt(this.state.topStyle1.left) - 250,
+          parseInt(this.state.topStyle1.top),
+          meme.offsetWidth
+        );
+
+        ctx.textBaseline = 'bottom';
+        ctx.fillText(
+          this.state.bottomText.toUpperCase(),
+          parseInt(this.state.bottomStyle1.left) - 250, 
+          parseInt(this.state.bottomStyle1.bottom), 
+          meme.offsetWidth
+        );
+        ctx.strokeText(
+          this.state.bottomText.toUpperCase(),
+          parseInt(this.state.bottomStyle1.left) - 250,
+          parseInt(this.state.bottomStyle1.bottom), 
+          meme.offsetWidth
+        );
   
-      // Download the canvas as a PNG
-      const link = document.createElement('a');
-      link.download = `${this.state.topText} - ${this.state.bottomText}.png`;
-      link.href = canvas.toDataURL('image/png');
-      link.click();
-    }.bind(this);
+        // Download the canvas as a PNG
+        const link = document.createElement('a');
+        link.download = `${this.state.topText} - ${this.state.bottomText}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      }.bind(this);
+    }, 500);
   }
-  
   
   render() {
     return (

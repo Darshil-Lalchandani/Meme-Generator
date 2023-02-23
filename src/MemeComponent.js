@@ -95,36 +95,37 @@ function MemeComp(props) {
         <button onClick={props.download}>Download Meme</button>
       </div>
       <div className="meme">
-      <svg
-            id="svg_ref"
+        <svg
+          id="svg_ref"
+          height="500px"
+          width="500px"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlnsXlink="http://www.w3.org/1999/xlink">
+          <image
+            xlinkHref={props.data.randomImg}
             height="500px"
             width="500px"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlnsXlink="http://www.w3.org/1999/xlink">
-            <image
-              xlinkHref={props.data.randomImg}
-              height="500px"
-              width="500px"
-            />
-            <text
-              id="textStyle"
-              x={props.data.topStyle1.left}
-              y={props.data.topStyle1.top}
-              dominantBaseline="middle"
-              textAnchor="middle"
-            >
-                {props.data.topText}
-            </text>
-            <text
-              id="textStyle"
-              dominantBaseline="middle"
-              textAnchor="middle"
-              x={props.data.bottomStyle1.left}
-              y={props.data.bottomStyle1.bottom}
-            >
-                {props.data.bottomText}
-            </text>
-          </svg>
+            preserveAspectRatio="none"
+          />
+          <text
+            id="textStyle"
+            x={props.data.topStyle1.left}
+            y={props.data.topStyle1.top}
+            dominantBaseline="middle"
+            textAnchor="middle"
+          >
+            {props.data.topText}
+          </text>
+          <text
+            id="textStyle"
+            dominantBaseline="middle"
+            textAnchor="middle"
+            x={props.data.bottomStyle1.left}
+            y={props.data.bottomStyle1.bottom}
+          >
+            {props.data.bottomText}
+          </text>
+        </svg>
       </div>
     </div>
   )
