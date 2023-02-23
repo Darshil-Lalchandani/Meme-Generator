@@ -92,6 +92,7 @@ function MemeComp(props) {
         </tr>
         </tbody>
         </table>
+        <button onClick={props.download}>Download Meme</button>
       </div>
       <div className="meme">
       <svg
