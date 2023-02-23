@@ -97,13 +97,11 @@ function MemeComp(props) {
       <div className="meme">
       <svg
             id="svg_ref"
-            //ref={el => { this.svgRef = el }}
             height="500px"
             width="500px"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink">
             <image
-              //ref={el => { this.imageRef = el }}
               xlinkHref={props.data.randomImg}
               height="500px"
               width="500px"

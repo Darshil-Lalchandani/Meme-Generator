@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import MemeComponent from './MemeComponent';
-import html2canvas from 'html2canvas';
 
 class MemeGenerator extends Component {
   constructor() {
