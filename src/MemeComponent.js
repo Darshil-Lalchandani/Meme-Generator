@@ -4,6 +4,7 @@ import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
+import { Typography } from "@mui/material";
 
 function MemeComp(props) {
   const stepStyle = {
@@ -20,17 +21,27 @@ function MemeComp(props) {
 
   return (
     <>
-      <Box sx={{ height: 300, float: "left", marginRight: "30px" }}>
+      <Box
+        sx={{
+          height: 300,
+          float: "left",
+          marginRight: "30px",
+          marginLeft: "10px",
+        }}
+      >
         <Stepper orientation="vertical" sx={{ float: "left" }}>
           <Step active={true} sx={stepStyle}>
             <StepLabel>
               {" "}
-              <span> Select template </span>
+              <Typography> Select template </Typography>
             </StepLabel>
           </Step>
           <Step active={true} sx={stepStyle}>
-            <StepLabel> Add texts</StepLabel>
-            <div style={{ height: "50px" }}>
+            <StepLabel>
+              {" "}
+              <Typography> Add texts </Typography>
+            </StepLabel>
+            <div style={{ height: "90px" }}>
               <div
                 style={{
                   borderLeft: "1px solid #ccc",
@@ -41,8 +52,11 @@ function MemeComp(props) {
             </div>
           </Step>
           <Step active={true} sx={stepStyle}>
-            <StepLabel> Position text</StepLabel>
-            <div style={{ height: "40px" }}>
+            <StepLabel>
+              {" "}
+              <Typography> Position text </Typography>
+            </StepLabel>
+            <div style={{ height: "110px" }}>
               <div
                 style={{
                   borderLeft: "1px solid #ccc",
@@ -53,7 +67,10 @@ function MemeComp(props) {
             </div>
           </Step>
           <Step active={true} sx={stepStyle}>
-            <StepLabel> Download </StepLabel>
+            <StepLabel>
+              {" "}
+              <Typography> Download </Typography>{" "}
+            </StepLabel>
           </Step>
         </Stepper>
       </Box>
@@ -68,98 +85,118 @@ function MemeComp(props) {
             >
               New template
             </Button>
-            <table>
-              <tbody>
-                <tr>
-                  <td>
-                    <label>Top Text:- </label>
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      name="topText"
-                      onChange={props.handleChange}
-                      value={props.data.topText}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <label>Bottom Text:- </label>
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      name="bottomText"
-                      onChange={props.handleChange}
-                      value={props.data.bottomText}
-                    />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <fieldset style={{ borderRadius: "5px" }}>
+              <legend>
+                {" "}
+                <Typography variant="body1" component="span">
+                  <b>Input texts:</b>
+                </Typography>
+              </legend>
+              <Typography variant="body1" component="span">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <label>Top Text:- </label>
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          name="topText"
+                          onChange={props.handleChange}
+                          value={props.data.topText}
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <label>Bottom Text:- </label>
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          name="bottomText"
+                          onChange={props.handleChange}
+                          value={props.data.bottomText}
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </Typography>
+            </fieldset>
             <br />
           </form>
 
           <br />
-          <table>
-            <tbody>
-              <tr>
-                <td>
-                  <label>Top Text(Horizontal):-</label>
-                </td>
-                <td>
-                  <input
-                    type="range"
-                    /*min="100px"
+          <fieldset style={{ borderRadius: "5px" }}>
+            <legend>
+              {" "}
+              <Typography variant="body1" component="span">
+                <b>Position your texts: </b>{" "}
+              </Typography>
+            </legend>
+            <Typography variant="body1" component="span">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label>Top Text(Horizontal):-</label>
+                    </td>
+                    <td>
+                      <input
+                        type="range"
+                        /*min="100px"
             max="700px"*/
-                    name="topStyle1"
-                    onChange={props.sliderAlign}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label>Bottom Text(Horizontal):-</label>
-                </td>
-                <td>
-                  <input
-                    type="range"
-                    /*min="100px"
+                        name="topStyle1"
+                        onChange={props.sliderAlign}
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label>Bottom Text(Horizontal):-</label>
+                    </td>
+                    <td>
+                      <input
+                        type="range"
+                        /*min="100px"
             max="700px"*/
-                    name="bottomStyle1"
-                    onChange={props.sliderAlign}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label>Top Text(Vertical):-</label>
-                </td>
-                <td>
-                  <input
-                    type="range"
-                    max="66"
-                    name="topStyle1"
-                    onChange={props.sliderAlignVertical}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label>Bottom Text(Vertical):-</label>
-                </td>
-                <td>
-                  <input
-                    type="range"
-                    max="70"
-                    name="bottomStyle1"
-                    onChange={props.sliderAlignVertical}
-                  />
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                        name="bottomStyle1"
+                        onChange={props.sliderAlign}
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label>Top Text(Vertical):-</label>
+                    </td>
+                    <td>
+                      <input
+                        type="range"
+                        max="66"
+                        name="topStyle1"
+                        onChange={props.sliderAlignVertical}
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label>Bottom Text(Vertical):-</label>
+                    </td>
+                    <td>
+                      <input
+                        type="range"
+                        max="70"
+                        name="bottomStyle1"
+                        onChange={props.sliderAlignVertical}
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </Typography>
+          </fieldset>
           <Button
             variant="contained"
             size="small"

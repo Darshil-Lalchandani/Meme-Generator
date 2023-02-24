@@ -75,3 +75,16 @@ header > p {
   margin-top: 25px;
   margin-left: 10px;
 }
+
+input[type="text"] {
+  font-size: 16px;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color:#2A0854;
+}
