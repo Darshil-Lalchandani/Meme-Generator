@@ -15,19 +15,12 @@ class MemeGenerator extends Component {
         left: "100px",
         zIndex: "5",
       },
-      bottomStyle2: {
-        bottom : 0
-      },
       topStyle1: {
         position: "absolute",
         top: "20px",
         left: "60px",
         zIndex: "5",
       },
-      topStyle2:  {
-        top : 0
-      },
-      
     }
     this.handleChange = this.handleChange.bind(this)
     this.imgSelector = this.imgSelector.bind(this)
