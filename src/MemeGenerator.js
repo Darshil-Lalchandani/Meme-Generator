@@ -27,12 +27,10 @@ class MemeGenerator extends Component {
       topStyle2:  {
         top : 0
       },
-      customTopTextAlign: false,
-      customBotTextAlign: false,
+      
     }
     this.handleChange = this.handleChange.bind(this)
     this.imgSelector = this.imgSelector.bind(this)
-    this.customAlign = this.customAlign.bind(this)
     this.sliderAlign = this.sliderAlign.bind(this)
     this.sliderAlignVertical = this.sliderAlignVertical.bind(this)
     this.download = this.download.bind(this)
@@ -63,12 +61,7 @@ class MemeGenerator extends Component {
       }
     })
   }
-  customAlign(event) {
-      this.setState({
-        customBotTextAlign: !this.state.customBotTextAlign,
-        customTopTextAlign: !this.state.customTopTextAlign,
-      })
-    }
+  
   sliderAlign(event) {
     const {name} = event.target
     if(name === "topStyle1") {
