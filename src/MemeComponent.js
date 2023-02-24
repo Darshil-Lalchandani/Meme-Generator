@@ -146,8 +146,6 @@ function MemeComp(props) {
                     <td>
                       <input
                         type="range"
-                        /*min="100px"
-            max="700px"*/
                         name="topStyle1"
                         onChange={props.sliderAlign}
                       />
@@ -160,8 +158,6 @@ function MemeComp(props) {
                     <td>
                       <input
                         type="range"
-                        /*min="100px"
-            max="700px"*/
                         name="bottomStyle1"
                         onChange={props.sliderAlign}
                       />
@@ -175,6 +171,7 @@ function MemeComp(props) {
                       <input
                         type="range"
                         max="66"
+                        defaultValue="5"
                         name="topStyle1"
                         onChange={props.sliderAlignVertical}
                       />
@@ -188,6 +185,7 @@ function MemeComp(props) {
                       <input
                         type="range"
                         max="70"
+                        defaultValue="65"
                         name="bottomStyle1"
                         onChange={props.sliderAlignVertical}
                       />

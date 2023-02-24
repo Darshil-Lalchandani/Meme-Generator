@@ -11,14 +11,14 @@ class MemeGenerator extends Component {
       allMemeImgs: [],
       bottomStyle1: {
         position: "absolute",
-        bottom: "350px",
-        left: "100px",
+        bottom: "450px",
+        left: "400px",
         zIndex: "5",
       },
       topStyle1: {
         position: "absolute",
         top: "20px",
-        left: "60px",
+        left: "450px",
         zIndex: "5",
       },
     };
