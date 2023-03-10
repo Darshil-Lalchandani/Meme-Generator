@@ -153,7 +153,10 @@ class MemeGenerator extends Component {
 
         // Download the canvas as a PNG
         const link = document.createElement("a");
-        link.download = `${this.state.topText} - ${this.state.bottomText}.png`;
+        link.download = `${this.state.topText.slice(
+          0,
+          10
+        )} - ${this.state.bottomText.slice(0, 10)}.png`;
         link.href = canvas.toDataURL("image/png");
         link.click();
       }.bind(this);

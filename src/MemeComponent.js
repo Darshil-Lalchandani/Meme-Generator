@@ -14,7 +14,7 @@ function MemeComp(props) {
               onClick={props.imgSelector}
               sx={{ marginBottom: "25px", marginTop: "5px" }}
             >
-              New template
+              Random template
             </Button>
             <fieldset style={{ borderRadius: "5px" }}>
               <legend>
