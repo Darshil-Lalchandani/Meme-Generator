@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import MemeComponent from "./MemeComponent";
+import Carousel from "./Carousel";
 
 class MemeGenerator extends Component {
   constructor() {
@@ -7,7 +8,7 @@ class MemeGenerator extends Component {
     this.state = {
       topText: "",
       bottomText: "",
-      randomImg: "http://i.imgflip.com/1bij.jpg",
+      randomImg: "http://i.imgflip.com/1bij.jpg", //selected image at center
       allMemeImgs: [],
       bottomStyle1: {
         position: "absolute",
@@ -27,12 +28,12 @@ class MemeGenerator extends Component {
     this.sliderAlign = this.sliderAlign.bind(this);
     this.sliderAlignVertical = this.sliderAlignVertical.bind(this);
     this.download = this.download.bind(this);
+    this.handleImgClick = this.handleImgClick.bind(this);
   }
   componentDidMount() {
     fetch("https://api.imgflip.com/get_memes")
       .then((response) => response.json())
       .then((response) => {
-        console.log(response);
         const { memes } = response.data;
         this.setState({
           allMemeImgs: memes,
@@ -159,6 +160,17 @@ class MemeGenerator extends Component {
     }, 500);
   };
 
+  handleImgClick = (event) => {
+    let stringNum = event.target?.alt?.substring(5);
+    let intNum;
+    if (stringNum) {
+      intNum = parseInt(stringNum);
+      this.setState({
+        randomImg: this.state.allMemeImgs[intNum].url,
+      });
+    }
+  };
+
   render() {
     return (
       <div>
@@ -170,6 +182,10 @@ class MemeGenerator extends Component {
           sliderAlign={this.sliderAlign}
           sliderAlignVertical={this.sliderAlignVertical}
           download={this.download}
+        />
+        <Carousel
+          imgArr={this.state.allMemeImgs}
+          handleImgClick={this.handleImgClick}
         />
       </div>
     );

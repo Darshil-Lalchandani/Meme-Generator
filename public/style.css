@@ -14,14 +14,14 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  font-weight: 900;
+  font-weight: 1000;
 }
 
 header > p {
   font-family: raleway;
   color: black;
   font-size: 56px;
-  margin-left: 60px;
+  text-align: center;
 }
 
 #textStyle {
@@ -51,8 +51,6 @@ header > p {
 
 .meme {
   position: relative;
-  /*top: 200px;
-  left: 5px;*/
   width: 50%;
   margin: auto;
 }
@@ -75,6 +73,25 @@ header > p {
   backdrop-filter: blur(10px);
   border-radius: 10px;
   padding: 20px;
+}
+
+.carousel-header {
+  font-family: raleway;
+  text-align:center;
+}
+
+.carousel-container {
+  width: 90%;
+  margin: 35px auto;
+}
+
+.carousel-item {
+  margin-left: 7px;
+  cursor: pointer;
+}
+
+.slick-slide {
+  outline: none
 }
 
 input[type="text"] {

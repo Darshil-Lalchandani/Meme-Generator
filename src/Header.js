@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
 function Header() {
-  return(
+  return (
     <header>
       <p>Meme Generator</p>
     </header>
