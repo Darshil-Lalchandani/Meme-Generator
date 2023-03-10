@@ -1,81 +1,12 @@
 import React from "react";
-import Stepper from "@mui/material/Stepper";
-import Step from "@mui/material/Step";
-import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
 import { Typography } from "@mui/material";
 
 function MemeComp(props) {
-  const stepStyle = {
-    "& .MuiStepLabel-root .MuiStepIcon-root": {
-      color: "secondary.main",
-    },
-    "& .MuiStepLabel-root .MuiStepIcon-root.MuiStepIcon-active": {
-      color: "primary.main",
-    },
-    "& .MuiStepLabel-label": {
-      color: "black",
-    },
-  };
-
   return (
     <>
-      <Box
-        sx={{
-          height: 300,
-          float: "left",
-          marginRight: "30px",
-          marginLeft: "10px",
-        }}
-      >
-        <Stepper orientation="vertical" sx={{ float: "left" }}>
-          <Step active={true} sx={stepStyle}>
-            <StepLabel>
-              {" "}
-              <Typography> Select template </Typography>
-            </StepLabel>
-          </Step>
-          <Step active={true} sx={stepStyle}>
-            <StepLabel>
-              {" "}
-              <Typography> Add texts </Typography>
-            </StepLabel>
-            <div style={{ height: "90px" }}>
-              <div
-                style={{
-                  borderLeft: "1px solid #ccc",
-                  height: "100%",
-                  marginLeft: "12px",
-                }}
-              ></div>
-            </div>
-          </Step>
-          <Step active={true} sx={stepStyle}>
-            <StepLabel>
-              {" "}
-              <Typography> Position text </Typography>
-            </StepLabel>
-            <div style={{ height: "110px" }}>
-              <div
-                style={{
-                  borderLeft: "1px solid #ccc",
-                  height: "100%",
-                  marginLeft: "12px",
-                }}
-              ></div>
-            </div>
-          </Step>
-          <Step active={true} sx={stepStyle}>
-            <StepLabel>
-              {" "}
-              <Typography> Download </Typography>{" "}
-            </StepLabel>
-          </Step>
-        </Stepper>
-      </Box>
-      <div className="meme-container">
-        <div>
+      <div className="meme-container glassmorphism">
+        <div className="">
           <form className="meme-form">
             <Button
               variant="contained"
