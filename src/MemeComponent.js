@@ -148,6 +148,14 @@ function MemeComp(props) {
               height="500px"
               width="500px"
               preserveAspectRatio="none"
+              className="display-desktop"
+            />
+            <image
+              xlinkHref={props.data.randomImg}
+              height="50vh"
+              width="85vw"
+              preserveAspectRatio="none"
+              className="display-mobile"
             />
             <text
               id="textStyle"
